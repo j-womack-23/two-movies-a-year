@@ -39,7 +39,7 @@ def display_logo():
     
     # Check the current theme and set invert filter accordingly
     current_theme = st.get_option("theme.primaryColor")
-    invert_filter = "invert(1)" if current_theme == "#0E1117" else ""  # Assuming dark theme has primary color as #0E1117
+    invert_filter = "invert(1)" if current_theme == "light" else ""  # Assuming light theme has primary color as white
 
     st.markdown(
         f"<img src='data:image/png;base64,{logo_base64}' style='height: 100px; filter: {invert_filter};' alt='App Logo'>", 
