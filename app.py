@@ -33,18 +33,9 @@ def show_random_movie(data):
 
 # Function to display the app logo with conditional color inversion
 def display_logo():
-    file_path = 'Two-Movies-A-Year_LOGO.png'
+    file_path = 'Two-Movies-A-Year_LOGO_WHITE.png'
     with open(file_path, "rb") as file:
         logo_base64 = base64.b64encode(file.read()).decode()
-    
-    # Check the current theme and set invert filter accordingly
-    current_theme = st.get_option("theme.primaryColor")
-    invert_filter = "invert(1)" if current_theme == "light" else ""  # Assuming light theme has primary color as white
-
-    st.markdown(
-        f"<img src='data:image/png;base64,{logo_base64}' style='height: 100px; filter: {invert_filter};' alt='App Logo'>", 
-        unsafe_allow_html=True
-    )
     
 # Streamlit GUI
 def main():
