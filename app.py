@@ -23,27 +23,6 @@ def randomize_selection(df):
     selected_value = selected_option[df.iloc[:, 0] == year].values[0]
     return f'{selected_value} ({year})'
 
-# Streamlit GUI
-def main():
-    st.title("Random Movie Selector")
-
-    # Option for user to choose data source
-    source_option = st.selectbox("Select data source", ["Upload CSV", "Google Sheets URL"])
-
-    if source_option == "Upload CSV":
-        uploaded_file = st.file_uploader("Upload your CSV", type=["csv"])
-        if uploaded_file is not None:
-            data = pd.read_csv(uploaded_file)
-            show_random_movie(data)
-    elif source_option == "Google Sheets URL":
-        sheet_url = st.text_input("Enter the Google Sheets URL")
-        if st.button("Load Sheet"):
-            csv_url = convert_to_csv_url(sheet_url)
-            try:
-                data = pd.read_csv(csv_url)
-                show_random_movie(data)
-            except Exception as e:
-                st.error(f"Error loading data: {e}")
 
 # Function to display random movie
 def show_random_movie(data):
@@ -64,7 +43,7 @@ def display_logo():
 
 # Streamlit GUI
 def main():
-    # Custom CSS
+    # Custom CSS for logo and selected movie
     st.markdown("""
         <style>
         .app-logo {
@@ -80,6 +59,24 @@ def main():
     display_logo()
 
     st.title("Random Movie Selector")
-    
+
+    # Option for user to choose data source
+    source_option = st.selectbox("Select data source", ["Upload CSV", "Google Sheets URL"])
+
+    if source_option == "Upload CSV":
+        uploaded_file = st.file_uploader("Upload your CSV", type=["csv"])
+        if uploaded_file is not None:
+            data = pd.read_csv(uploaded_file)
+            show_random_movie(data)
+    elif source_option == "Google Sheets URL":
+        sheet_url = st.text_input("Enter the Google Sheets URL")
+        if st.button("Load Sheet"):
+            csv_url = convert_to_csv_url(sheet_url)
+            try:
+                data = pd.read_csv(csv_url)
+                show_random_movie(data)
+            except Exception as e:
+                st.error(f"Error loading data: {e}")
+
 if __name__ == "__main__":
     main()
