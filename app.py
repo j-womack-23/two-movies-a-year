@@ -31,16 +31,21 @@ def show_random_movie(data):
         st.markdown(f"<div class='selected-movie'>Selected Movie: {result}</div>", unsafe_allow_html=True
                    )
 
-# Function to display the app logo with color inversion in dark mode
+# Function to display the app logo with conditional color inversion
 def display_logo():
     file_path = 'Two-Movies-A-Year_LOGO.png'
     with open(file_path, "rb") as file:
         logo_base64 = base64.b64encode(file.read()).decode()
+    
+    # Check the current theme and set invert filter accordingly
+    current_theme = st.get_option("theme.primaryColor")
+    invert_filter = "invert(1)" if current_theme == "#ffffff" else ""  # Assuming light theme has primary color as white
+
     st.markdown(
-        f"<img src='data:image/png;base64,{logo_base64}' class='app-logo' alt='App Logo'>", 
+        f"<img src='data:image/png;base64,{logo_base64}' style='height: 100px; filter: {invert_filter};' alt='App Logo'>", 
         unsafe_allow_html=True
     )
-
+    
 # Streamlit GUI
 def main():
     # Custom CSS for logo and selected movie
