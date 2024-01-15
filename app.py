@@ -50,6 +50,7 @@ def show_random_movie(data):
     if st.button("Generate Random Movie"):
         result = randomize_selection(data)
         st.markdown(f"<div class='selected-movie'>Selected Movie: {result}</div>", unsafe_allow_html=True
+                   )
 
 # Function to display the app logo with color inversion in dark mode
 def display_logo():
