@@ -28,7 +28,7 @@ def randomize_selection(df):
 def show_random_movie(data):
     if st.button("Generate Random Movie"):
         result = randomize_selection(data)
-        st.markdown(f"<div class='selected-movie'>Selected Movie: <br>{result}</div>", unsafe_allow_html=True
+        st.markdown(f"<div class='selected-movie'>Selected Movie: <br><span class='selected-movie-result'>{result}</span></div>", unsafe_allow_html=True
                    )
 
 # Function to display the app logo with conditional color inversion
@@ -52,7 +52,11 @@ def main():
             filter: invert(var(--logo-invert));
         }
         .selected-movie {
+            font-size: 2vw;
+        }
+        .selected-movie-result {
             font-size: 4vw;
+            font-weight: 700;
         }
         </style>
         """, unsafe_allow_html=True)
