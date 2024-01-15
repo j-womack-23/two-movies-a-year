@@ -16,10 +16,11 @@ def convert_to_csv_url(sheet_url):
 
 # Randomize the selection
 def randomize_selection(df):
-    year = random.choice(df['Year'])
-    option = random.choice(['Option_J', 'Option_K'])
-    selected_option = df.loc[df['Year'] == year, option].values[0]
-    return f'{selected_option} ({year})'
+    year = random.choice(df.iloc[:, 0])  # Assuming column A (index 0) is 'Year'
+    option_index = random.choice([1, 2])  # Randomly choose between column B (index 1) and column C (index 2)
+    selected_option = df.iloc[:, option_index]
+    selected_value = selected_option[df.iloc[:, 0] == year].values[0]
+    return f'{selected_value} ({year})'
 
 # Streamlit GUI
 def main():
