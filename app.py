@@ -65,23 +65,28 @@ def main():
 
     st.title("Two Movies A Year: Randomizer")
 
-    # Option for user to choose data source
+    if 'data' not in st.session_state:
+        st.session_state['data'] = None
+
     source_option = st.selectbox("Select data source", ["Upload CSV", "Google Sheets URL"])
 
     if source_option == "Upload CSV":
         uploaded_file = st.file_uploader("Upload your CSV", type=["csv"])
         if uploaded_file is not None:
-            data = pd.read_csv(uploaded_file)
-            show_random_movie(data)
+            st.session_state['data'] = pd.read_csv(uploaded_file)
+
     elif source_option == "Google Sheets URL":
         sheet_url = st.text_input("Enter the Google Sheets URL")
         if st.button("Load Sheet"):
             csv_url = convert_to_csv_url(sheet_url)
             try:
-                data = pd.read_csv(csv_url)
-                show_random_movie(data)
+                st.session_state['data'] = pd.read_csv(csv_url)
+                st.success("Data loaded successfully!")
             except Exception as e:
                 st.error(f"Error loading data: {e}")
+
+    if st.session_state['data'] is not None:
+        show_random_movie(st.session_state['data'])
 
 if __name__ == "__main__":
     main()
