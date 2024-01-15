@@ -21,8 +21,7 @@ def randomize_selection(df):
     option_index = random.choice([1, 2])  # Randomly choose between column B (index 1) and column C (index 2)
     selected_option = df.iloc[:, option_index]
     selected_value = selected_option[df.iloc[:, 0] == year].values[0]
-    return f'{selected_value} 
-    ({year})'
+    return f'{selected_value} ({year})'
 
 
 # Function to display random movie
@@ -38,14 +37,10 @@ def display_logo():
     with open(file_path, "rb") as file:
         logo_base64 = base64.b64encode(file.read()).decode()
     
-    # Check the current theme and set invert filter accordingly
-    current_theme = st.get_option("theme.primaryColor")
-    invert_filter = "invert(1)" if current_theme == "#ffffff" else ""  # Assuming light theme has primary color as white
-
     st.markdown(
-        f"<img src='data:image/png;base64,{logo_base64}' style='height: 100px; filter: {invert_filter};' alt='App Logo'>", 
-        unsafe_allow_html=True
-    )
+    f"<img src='data:image/png;base64,{logo_base64}' style='height: 100px;' alt='App Logo'>", 
+    unsafe_allow_html=True
+)
 
 # Streamlit GUI
 def main():
