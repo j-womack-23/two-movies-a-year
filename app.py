@@ -21,7 +21,8 @@ def randomize_selection(df):
     option_index = random.choice([1, 2])  # Randomly choose between column B (index 1) and column C (index 2)
     selected_option = df.iloc[:, option_index]
     selected_value = selected_option[df.iloc[:, 0] == year].values[0]
-    return f'{selected_value} ({year})'
+    return f'{selected_value} 
+    ({year})'
 
 
 # Function to display random movie
