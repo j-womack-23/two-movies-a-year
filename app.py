@@ -63,7 +63,7 @@ def main():
     
     display_logo()
 
-    st.title("Two Movies A Year: Random Movie Selector")
+    st.title("Two Movies A Year: Randomizer")
 
     # Option for user to choose data source
     source_option = st.selectbox("Select data source", ["Upload CSV", "Google Sheets URL"])
