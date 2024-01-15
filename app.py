@@ -3,6 +3,7 @@
 import streamlit as st
 import pandas as pd
 import random
+import base64
 
 def convert_to_csv_url(sheet_url):
     # Extract the unique part of the Google Sheets URL (between 'd/' and '/edit')
@@ -36,7 +37,7 @@ def main():
             show_random_movie(data)
     elif source_option == "Google Sheets URL":
         sheet_url = st.text_input("Enter the Google Sheets URL")
-        if sheet_url:
+        if st.button("Load Sheet"):
             csv_url = convert_to_csv_url(sheet_url)
             try:
                 data = pd.read_csv(csv_url)
@@ -48,7 +49,36 @@ def main():
 def show_random_movie(data):
     if st.button("Generate Random Movie"):
         result = randomize_selection(data)
-        st.write("Selected Movie:", result)
+        st.markdown(f"<div class='selected-movie'>Selected Movie: {result}</div>", unsafe_allow_html=True
 
+# Function to display the app logo with color inversion in dark mode
+def display_logo():
+    file_path = 'Two-Movies-A-Year_LOGO.png'
+    with open(file_path, "rb") as file:
+        logo_base64 = base64.b64encode(file.read()).decode()
+    st.markdown(
+        f"<img src='data:image/png;base64,{logo_base64}' class='app-logo' alt='App Logo'>", 
+        unsafe_allow_html=True
+    )
+
+# Streamlit GUI
+def main():
+    # Custom CSS
+    st.markdown("""
+        <style>
+        .app-logo {
+            height: 100px; 
+            filter: invert(var(--logo-invert));
+        }
+        .selected-movie {
+            font-size: 4vw;
+        }
+        </style>
+        """, unsafe_allow_html=True)
+    
+    display_logo()
+
+    st.title("Random Movie Selector")
+    
 if __name__ == "__main__":
     main()
