@@ -33,7 +33,7 @@ def main():
         if uploaded_file is not None:
             data = pd.read_csv(uploaded_file)
             show_random_movie(data)
-   elif source_option == "Google Sheets URL":
+    elif source_option == "Google Sheets URL":
         sheet_url = st.text_input("Enter the Google Sheets URL")
         if sheet_url:
             csv_url = convert_to_csv_url(sheet_url)
