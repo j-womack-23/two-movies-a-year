@@ -2,7 +2,7 @@
 
 import streamlit as st
 import pandas as pd
-import random from python
+import random
 import base64
 
 def convert_to_csv_url(sheet_url):
