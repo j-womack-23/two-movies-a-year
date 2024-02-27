@@ -87,9 +87,10 @@ def main():
 
     if st.session_state['data'] is not None:
         show_random_movie(st.session_state['data'])
-    st.divider(
+        
+    st.divider()
     st.caption("To make your own version or use this code yourself, visit the link below:")
-    st.link_button("Fork on GitHub", https://github.com/j-womack-23/two-movies-a-year/)
-    )
+    st.link_button("Fork on GitHub", "https://github.com/j-womack-23/two-movies-a-year/")
+    
 if __name__ == "__main__":
     main()
