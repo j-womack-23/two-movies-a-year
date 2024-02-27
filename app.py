@@ -88,9 +88,16 @@ def main():
     if st.session_state['data'] is not None:
         show_random_movie(st.session_state['data'])
         
+    # Fork on Github button    
     st.divider()
     st.caption("To make your own version or use this code yourself, visit the link below:")
     st.link_button("Fork on GitHub", "https://github.com/j-womack-23/two-movies-a-year/")
-    
+
+    #change favicon & site name
+    st.set_page_config(
+        page_title="Two Movies A Year",
+        page_icon="movie-camera",
+        layout="wide",
+    )
 if __name__ == "__main__":
     main()
