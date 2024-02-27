@@ -96,7 +96,7 @@ def main():
     #change favicon & site name
     st.set_page_config(
         page_title="Two Movies A Year",
-        page_icon="movie-camera",
+        page_icon="Two-Movies-A-Year_LOGO_WHITE.png",
         layout="wide",
     )
 if __name__ == "__main__":
