@@ -42,6 +42,13 @@ def display_logo():
     unsafe_allow_html=True
 )
 
+#change favicon & site name
+st.set_page_config(
+page_title="Two Movies A Year",
+page_icon="Two-Movies-A-Year_LOGO_WHITE.png",
+layout="wide",
+)
+    
 # Streamlit GUI
 def main():
     # Custom CSS for logo and selected movie
@@ -93,11 +100,5 @@ def main():
     st.caption("To make your own version or use this code yourself, visit the link below:")
     st.link_button("Fork on GitHub", "https://github.com/j-womack-23/two-movies-a-year/")
 
-    #change favicon & site name
-    st.set_page_config(
-        page_title="Two Movies A Year",
-        page_icon="Two-Movies-A-Year_LOGO_WHITE.png",
-        layout="wide",
-    )
 if __name__ == "__main__":
     main()
