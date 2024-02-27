@@ -45,7 +45,7 @@ def display_logo():
 #change favicon & site name
 st.set_page_config(
 page_title="Two Movies A Year",
-page_icon="Two-Movies-A-Year_LOGO_WHITE.png",
+page_icon="movie-camera",
 layout="wide",
 )
     
