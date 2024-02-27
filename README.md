@@ -6,7 +6,7 @@ For those days when we can't decide what to watch...
 This generator is designed to take a tabled set of values from Google Sheets or uploaded CSV, randomize selection of a year, and a column, then provide the output from that resulting cell.
 
 Template/format for CSV can be found in /templates, Google Sheets Template can be found at this link:
-[https://docs.google.com/spreadsheets/d/18K1uvd7mkMGlL0HmjYmSooaUMa8SHfMRHQN-0YZ3qOg/template/preview]([url](https://docs.google.com/spreadsheets/d/18K1uvd7mkMGlL0HmjYmSooaUMa8SHfMRHQN-0YZ3qOg/template/preview))
+([url](https://docs.google.com/spreadsheets/d/18K1uvd7mkMGlL0HmjYmSooaUMa8SHfMRHQN-0YZ3qOg/template/preview))
 
 This will be accomplished via a python script written by AI, and hosted on StreamLit as a GUI that we can access from our phones. (Possibility of app development later is not off the table...)
 
